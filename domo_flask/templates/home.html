@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  	<div class="jumbo">
+	    	<h2>Welcome to the Domo<h2>
+	    	<h3>This is the home page for the Flask app<h3>
+
+  	</div>
+
+  	<nav>
+		<ul>
+			<li><a href="{{ url_for('turnOn') }}">Turn on</a></li>
+			<li><a href="{{ url_for('turnOff') }}">Turn off</a></li>
+		</ul>
+	</nav>
+{% endblock %}

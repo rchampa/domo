@@ -1,3 +1,3 @@
-from domo_flask import app
+from domo_flask import application
  
-app.run(debug=True)
+application.run(debug=True)
