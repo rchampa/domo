@@ -7,7 +7,12 @@ from forms import ContactForm
 
 from flask.ext.mail import Message, Mail 
 mail = Mail() 
-  
+
+#from raspi.Raspi import Raspi
+#domo_raspi = Raspi()  
+
+from raspi.RaspiOSX import RaspiOSX
+domo_raspi = RaspiOSX()
  
 #We then mapped the URL / to the function home(). Now, when someone visits this URL, the function home() will execute. 
 @application.route('/')
@@ -20,11 +25,13 @@ def about():
 
 @application.route('/turnon')
 def turnOn():
-  return ""
+  domo_raspi.turnOn()
+  return "Turned on"
 
 @application.route('/turnoff')
 def turnOff():
-  return ""
+  domo_raspi.turnOff()
+  return "Turned off"
 
 @application.route('/contact', methods=['GET', 'POST'])
 def contact():
