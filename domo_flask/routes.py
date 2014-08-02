@@ -8,11 +8,18 @@ from forms import ContactForm
 from flask.ext.mail import Message, Mail 
 mail = Mail() 
 
-#from raspi.Raspi import Raspi
-#domo_raspi = Raspi()  
+#Detecting enviroment...
+import platform
+print 'OS: ' + platform.system()
 
-from raspi.RaspiOSX import RaspiOSX
-domo_raspi = RaspiOSX()
+if platform.system()=='Darwin':#Mac OS comes from Darwin haha
+  from raspi.RaspiOSX import RaspiOSX
+  domo_raspi = RaspiOSX()
+else:
+  from raspi.Raspi import Raspi
+  domo_raspi = Raspi()  
+
+
  
 #We then mapped the URL / to the function home(). Now, when someone visits this URL, the function home() will execute. 
 @application.route('/')
@@ -23,15 +30,20 @@ def home():#The function home() uses the Flask function render_template() to ren
 def about():
   return render_template('about.html')
 
+
+import json
+
 @application.route('/turnon')
 def turnOn():
   domo_raspi.turnOn()
-  return "Turned on"
+  json_response = json.dumps([{'code': "200", 'message': "Turned on"}])
+  return json_response
 
 @application.route('/turnoff')
 def turnOff():
   domo_raspi.turnOff()
-  return "Turned off"
+  json_response = json.dumps([{'code': "200", 'message': "Turned off"}])
+  return json_response
 
 @application.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -54,11 +66,3 @@ def contact():
   elif request.method == 'GET':
     return render_template('contact.html', form=form)
 
-
-
-
-#Finally, we use run() to run our app on a local server. 
-#We'll set the debug flag to true, so we can view any applicable error messages if something goes wrong, 
-#and so that the local server automatically reloads after we've made changes to the code. 
-if __name__ == '__main__':
-  application.run(debug=True)
