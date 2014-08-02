@@ -6,3 +6,5 @@ class IRaspi( object ):
     def turnOff( self ):
         raise NotImplementedError( "Should have implemented this" )
 
+    def cleanGPIO( self ):
+    	GPIO.cleanup()
