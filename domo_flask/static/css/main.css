@@ -175,3 +175,25 @@ form input#password {
 form input#password {
   margin-bottom: 10px;
 }
+
+/*List of images*/
+
+#menu-outer {
+  height: 180px;
+  background: #cccccc repeat-x;
+}
+
+.table {
+  display: table;   /* Allow the centering to work */
+  margin: 0 auto;
+}
+
+ul#horizontal-list {
+  min-width: 100px;
+  list-style: none;
+  padding-top: 20px;
+}
+
+ul#horizontal-list li {
+  display: inline;
+}

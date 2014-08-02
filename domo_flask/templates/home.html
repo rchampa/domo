@@ -2,14 +2,26 @@
 {% block content %}
   	<div class="jumbo">
 	    	<h2>Welcome to the Domo<h2>
-	    	<h3>This is the home page for the Flask app<h3>
+	    	<h3>This is the home page for Domo<h3>
 
   	</div>
 
   	<nav>
-		<ul>
-			<li><a href="{{ url_for('turnOn') }}">Turn on</a></li>
-			<li><a href="{{ url_for('turnOff') }}">Turn off</a></li>
-		</ul>
+		<div id="menu-outer">
+		  <div class="table">
+		    <ul id="horizontal-list">
+		      	<li>
+					<a href="{{ url_for('turnOn') }}">
+						<img src="{{ url_for('static', filename = 'img/lights_on.png') }}" alt="Turn on" height="100" width="100">
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('turnOff') }}">
+						<img src="{{ url_for('static', filename = 'img/lights_off.png') }}" alt="Turn on" height="100" width="100">
+					</a>
+				</li>
+		    </ul>
+		  </div>
+		</div>
 	</nav>
 {% endblock %}
