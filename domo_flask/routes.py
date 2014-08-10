@@ -33,6 +33,18 @@ def about():
 
 import json
 
+@application.route('/clean', methods=['GET', 'POST'])
+def clean():
+  #192.168.1.
+  print("IP from: "+request.remote_addr)
+  checkIP = "192.168.1." in request.remote_addr or request.remote_addr=="127.0.0.1"
+  if checkIP:
+    domo_raspi.cleanGPIO()
+    json_response = json.dumps([{'code': "200", 'message': "Cleaned"}])
+    return json_response
+
+
+
 @application.route('/turnon', methods=['GET', 'POST'])
 def turnOn():
   #192.168.1.

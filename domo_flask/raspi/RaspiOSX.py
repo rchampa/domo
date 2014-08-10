@@ -8,3 +8,6 @@ class RaspiOSX( IRaspi ):
 
     def turnOff( self ):
         print "Turning off..."
+
+    def cleanGPIO( self ):
+        print "Cleaning..."

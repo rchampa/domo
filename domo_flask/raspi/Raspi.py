@@ -25,3 +25,6 @@ class Raspi( IRaspi ):
         	super(Raspi, self).cleanGPIO();
         except:
         	super(Raspi, self).cleanGPIO();
+
+    def cleanGPIO( self ):
+        GPIO.cleanup()
