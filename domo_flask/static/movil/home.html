@@ -1,0 +1,42 @@
+<div class="scrollable">  
+  <div class="scrollable-content">
+
+    <div class="list-group">
+      <div class="list-group-item">
+        <h1>Domótica en casa<br/>
+        <small>Enciende y apaga las luces</small>
+        </h1>
+      </div>
+      
+      <div class="list-group-item media">
+          <div class="container-fluid section section-break" id="toggleExample">
+
+            <p toggleable id="lightbulb" active-class="text-primary" class="text-default">
+              <i class="fa fa-lightbulb-o"></i>
+            </p>
+
+            <div class="btn-group justified nav-tabs">
+             
+              <a  
+                 ng-click="on()"
+                 toggle="on" 
+                 target="lightbulb" 
+                 class="btn btn-default" href>
+                  Encender
+              </a>
+              <a  
+                 ng-click="off()"
+                 toggle="off"
+                 target="lightbulb"
+                 class="btn btn-default" href>
+                  Apagar
+              </a>        
+            </div>
+          </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
